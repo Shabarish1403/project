@@ -1,15 +1,11 @@
 import csv
+from functools import reduce
 
 data = csv.reader(open('/home/shabarish/Desktop/data.csv'))
 table = list(data)
 print(table)
 
-l = len(table)
-table1 = table[0]
-i=1
-while i<l:
-    table1+=table[i]
-    i+=1
+table1 = reduce(lambda x,y:x+y,table)
 print(table1)
 
 if len(table1) == len(set(table1)):
